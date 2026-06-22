@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giggiolandia — Caramelle, Palloncini e Feste a Quartu Sant'Elena</title>
+  <meta name="description" content="Il magico mondo delle caramelle a Quartu Sant'Elena. Caramelle di ogni forma e colore, palloncini, composizioni artistiche di bonbon, decorazioni per torte e addobbi per feste.">
+  <meta name="keywords" content="caramelle Quartu Sant'Elena, palloncini Quartu, articoli per feste Quartu, Giggiolandia, decorazioni torte Quartu, bonbon composizioni Sardegna, negozio caramelle Cagliari">
+  <meta property="og:title" content="Giggiolandia — il magico mondo delle caramelle">
+  <meta property="og:description" content="Caramelle, palloncini e tutta la magia per le tue feste, a Quartu Sant'Elena. Le creazioni artistiche di Daniela.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Giggiolandia — il magico mondo delle caramelle">
+  <meta name="twitter:description" content="Caramelle, palloncini e tutta la magia per le tue feste, a Quartu Sant'Elena.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Giggiolandia — il magico mondo delle caramelle",
+    "description": "Negozio di caramelle, palloncini e articoli per feste",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Fiume 195",
+      "addressLocality": "Quartu Sant'Elena",
+      "postalCode": "09045",
+      "addressRegion": "CA",
+      "addressCountry": "IT"
+    },
+    "telephone": "+393476302818",
+    "openingHours": ["Mo-Sa 09:00-13:00", "Mo-Sa 17:00-20:00"]
+  }
+  </script>
+
+  <style>
+    html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Quicksand', system-ui, -apple-system, sans-serif;
+      background: #FFF9F2;
+      color: #3A1F3D;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+    * { box-sizing: border-box; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    @keyframes confettiFall {
+      0%   { transform: translate3d(0,-40px,0) rotate(0deg); opacity: 0; }
+      8%   { opacity: 1; }
+      100% { transform: translate3d(40px,820px,0) rotate(720deg); opacity: 0; }
+    }
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50%      { transform: rotate(3deg); }
+    }
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+
+    /* Responsive helpers (the only CSS we can't inline) */
+    @media (max-width: 768px) {
+      [data-only="desktop"] { display: none !important; }
+      [data-hero-title]   { font-size: 64px !important; line-height: 0.95 !important; }
+      [data-hero-sub]     { font-size: 18px !important; }
+      [data-hero-tag]     { font-size: 15px !important; }
+      [data-section-h]    { font-size: 38px !important; }
+      [data-section-pad]  { padding-left: 20px !important; padding-right: 20px !important; padding-top: 60px !important; padding-bottom: 60px !important; }
+      [data-products-grid]{ grid-template-columns: 1fr !important; }
+      [data-daniela-grid] { grid-template-columns: 1fr !important; gap: 32px !important; }
+      [data-visit-grid]   { grid-template-columns: 1fr !important; }
+      [data-feste-grid]   { grid-template-columns: 1fr !important; }
+      [data-reviews-grid] { grid-template-columns: 1fr !important; }
+      [data-footer-grid]  { grid-template-columns: 1fr !important; text-align: center !important; }
+      [data-hero-ctas]    { flex-direction: column !important; align-items: stretch !important; }
+      [data-hero-ctas] a  { width: 100% !important; }
+      [data-mobile-bottom-pad] { padding-bottom: 88px !important; }
+      [data-float-phone]  { bottom: 84px !important; }
+    }
+    @media (min-width: 769px) {
+      [data-only="mobile"] { display: none !important; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .confetti-bit { display: none !important; }
+      html { scroll-behavior: auto !important; }
+    }
+  </style>
+</helmet>
+
+<div data-mobile-bottom-pad="" style="min-height: 100vh; background: #FFF9F2;">
+
+  <!-- ============ STICKY HEADER ============ -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255, 249, 242, 0.92); backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px); border-bottom: 1px solid rgba(58, 31, 61, 0.08);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+
+      <a href="#home" onClick="{{ goHome }}" style="text-decoration: none; display: flex; flex-direction: column; line-height: 1;">
+        <span style="font-family: 'Pacifico', cursive; font-size: 30px; background: linear-gradient(92deg, #E85D8A 0%, #F5C842 35%, #6BC5A0 65%, #5BB8D4 100%); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: 0.5px;">Giggiolandia</span>
+        <span style="font-family: 'Quicksand', sans-serif; font-size: 11px; font-weight: 500; color: #3A1F3D; letter-spacing: 1.4px; text-transform: uppercase; margin-top: 4px;">il magico mondo delle caramelle</span>
+      </a>
+
+      <nav data-only="desktop" style="display: flex; align-items: center; gap: 28px;">
+        <a href="#negozio" onClick="{{ goShop }}" style="text-decoration: none; color: #3A1F3D; font-weight: 600; font-size: 15px;">Il Negozio</a>
+        <a href="#prodotti" onClick="{{ goProducts }}" style="text-decoration: none; color: #3A1F3D; font-weight: 600; font-size: 15px;">Prodotti</a>
+        <a href="#daniela" onClick="{{ goDaniela }}" style="text-decoration: none; color: #3A1F3D; font-weight: 600; font-size: 15px;">Daniela</a>
+        <a href="#contatti" onClick="{{ goContatti }}" style="text-decoration: none; color: #3A1F3D; font-weight: 600; font-size: 15px;">Contatti</a>
+        <a href="#contatti" onClick="{{ goContatti }}" style="text-decoration: none; background: #E85D8A; color: #fff; padding: 11px 22px; border-radius: 999px; font-weight: 700; font-size: 14px; box-shadow: 0 6px 18px rgba(232, 93, 138, 0.35); transition: transform 0.2s ease, box-shadow 0.2s ease;" style-hover="transform: translateY(-2px); box-shadow: 0 10px 22px rgba(232, 93, 138, 0.45);">Vieni a Trovarci</a>
+      </nav>
+
+      <button data-only="mobile" onClick="{{ toggleMenu }}" aria-label="Apri menu" style="background: transparent; border: 0; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; color: #3A1F3D;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+          <line x1="4" y1="7" x2="20" y2="7"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="17" x2="20" y2="17"></line>
+        </svg>
+      </button>
+    </div>
+
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="background: #FFF9F2; border-top: 1px solid rgba(58, 31, 61, 0.08); padding: 16px 24px 24px;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <a href="#negozio" onClick="{{ goShop }}" style="text-decoration: none; color: #3A1F3D; font-weight: 600; font-size: 17px; padding: 14px 8px; border-bottom: 1px dashed rgba(58, 31, 61, 0.12);">Il Negozio</a>
+          <a href="#prodotti" onClick="{{ goProducts }}" style="text-decoration: none; color: #3A1F3D; font-weight: 600; font-size: 17px; padding: 14px 8px; border-bottom: 1px dashed rgba(58, 31, 61, 0.12);">Prodotti</a>
+          <a href="#daniela" onClick="{{ goDaniela }}" style="text-decoration: none; color: #3A1F3D; font-weight: 600; font-size: 17px; padding: 14px 8px; border-bottom: 1px dashed rgba(58, 31, 61, 0.12);">Daniela</a>
+          <a href="#contatti" onClick="{{ goContatti }}" style="text-decoration: none; color: #3A1F3D; font-weight: 600; font-size: 17px; padding: 14px 8px; border-bottom: 1px dashed rgba(58, 31, 61, 0.12);">Contatti</a>
+          <a href="#contatti" onClick="{{ goContatti }}" style="text-decoration: none; background: #E85D8A; color: #fff; padding: 14px 22px; border-radius: 999px; font-weight: 700; font-size: 16px; text-align: center; margin-top: 12px;">Vieni a Trovarci</a>
+        </div>
+      </div>
+    </sc-if>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="home" data-section-pad="" style="position: relative; overflow: hidden; padding: 80px 24px 100px; background: radial-gradient(ellipse at 20% 10%, rgba(232,93,138,0.18), transparent 55%), radial-gradient(ellipse at 80% 20%, rgba(91,184,212,0.18), transparent 55%), radial-gradient(ellipse at 50% 90%, rgba(245,200,66,0.16), transparent 55%), #FFF9F2;">
+
+    <!-- Confetti bits -->
+    <sc-for list="{{ confetti }}" as="bit" hint-placeholder-count="12">
+      <span class="confetti-bit" aria-hidden="true" style="position: absolute; top: -10px; left: {{ bit.left }}; width: {{ bit.size }}; height: {{ bit.size }}; background: {{ bit.color }}; border-radius: {{ bit.radius }}; opacity: 0; animation: confettiFall {{ bit.duration }} linear {{ bit.delay }} infinite; will-change: transform;"></span>
+    </sc-for>
+
+    <div style="position: relative; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center;" data-daniela-grid="">
+
+      <div style="position: relative; z-index: 2;">
+        <div style="display: inline-flex; align-items: center; gap: 8px; background: #fff; padding: 8px 16px; border-radius: 999px; box-shadow: 0 6px 18px rgba(58, 31, 61, 0.08); margin-bottom: 28px;">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #6BC5A0; box-shadow: 0 0 0 4px rgba(107, 197, 160, 0.25);"></span>
+          <span style="font-size: 13px; font-weight: 600; color: #3A1F3D; letter-spacing: 0.3px;">Aperto oggi · 9:00–13:00 · 17:00–20:00</span>
+        </div>
+
+        <h1 data-hero-title="" style="font-family: 'Pacifico', cursive; font-size: clamp(72px, 9vw, 124px); line-height: 0.92; margin: 0 0 8px; font-weight: 400; letter-spacing: -0.5px;">
+          <span style="color: #E85D8A;">G</span><span style="color: #F5C842;">i</span><span style="color: #6BC5A0;">g</span><span style="color: #5BB8D4;">g</span><span style="color: #E85D8A;">i</span><span style="color: #6BC5A0;">o</span><span style="color: #F5C842;">l</span><span style="color: #5BB8D4;">a</span><span style="color: #E85D8A;">n</span><span style="color: #F5C842;">d</span><span style="color: #6BC5A0;">i</span><span style="color: #5BB8D4;">a</span>
+        </h1>
+
+        <p data-hero-sub="" style="font-family: 'Baloo 2', 'Quicksand', sans-serif; font-size: clamp(20px, 2.4vw, 28px); font-weight: 600; color: #3A1F3D; margin: 0 0 20px; letter-spacing: 0.2px;">Il magico mondo delle caramelle</p>
+
+        <p data-hero-tag="" style="font-size: clamp(16px, 1.8vw, 19px); line-height: 1.55; color: #6B4A6F; margin: 0 0 36px; max-width: 520px; text-wrap: pretty;">Caramelle, palloncini e tutta la magia per le tue feste — a Quartu Sant'Elena.</p>
+
+        <div data-hero-ctas="" style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="#prodotti" onClick="{{ goProducts }}" style="text-decoration: none; background: #E85D8A; color: #fff; padding: 16px 28px; border-radius: 999px; font-weight: 700; font-size: 16px; box-shadow: 0 10px 24px rgba(232, 93, 138, 0.38); display: inline-flex; align-items: center; gap: 10px; transition: transform 0.2s ease, box-shadow 0.2s ease;" style-hover="transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 28px rgba(232, 93, 138, 0.45);">
+            Entra nel Mondo Magico
+            <span aria-hidden="true">→</span>
+          </a>
+          <a href="tel:+393476302818" style="text-decoration: none; background: #fff; color: #3A1F3D; padding: 16px 28px; border-radius: 999px; font-weight: 700; font-size: 16px; box-shadow: 0 6px 18px rgba(58, 31, 61, 0.08); display: inline-flex; align-items: center; gap: 10px; border: 2px solid #3A1F3D; transition: transform 0.2s ease;" style-hover="transform: translateY(-3px) scale(1.02);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            Chiamaci
+          </a>
+        </div>
+
+        <p style="margin: 28px 0 0; font-size: 14px; color: #6B4A6F; font-style: italic;">
+          <!-- VERIFY: insert exact Google review count from Maps listing -->
+          ✨ Una boutique di magia dal cuore di Quartu Sant'Elena
+        </p>
+      </div>
+
+      <!-- Hero visual: stacked candy-jar illustration with soft photo if available -->
+      <div style="position: relative; min-height: 460px;">
+
+        <!-- TODO: verify and insert real hero photo from the shop (colorful shop interior) -->
+        <div style="position: absolute; right: 0; top: 0; width: 78%; aspect-ratio: 4/5; border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px rgba(58, 31, 61, 0.22); transform: rotate(3deg); background: linear-gradient(160deg, #E85D8A 0%, #F5C842 100%);">
+          <img src="https://images.unsplash.com/photo-1581798459219-318e76aecc7b?w=900&amp;q=80&amp;auto=format&amp;fit=crop" alt="Caramelle colorate nei barattoli — TODO: sostituire con foto reale del negozio Giggiolandia" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+
+        <div style="position: absolute; left: 0; bottom: 0; width: 60%; aspect-ratio: 3/4; border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px rgba(58, 31, 61, 0.22); transform: rotate(-5deg); background: linear-gradient(160deg, #5BB8D4 0%, #6BC5A0 100%); z-index: 3;">
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=700&amp;q=80&amp;auto=format&amp;fit=crop" alt="Palloncini colorati — TODO: sostituire con foto reale degli allestimenti di Giggiolandia" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+
+        <!-- Floating sticker badges -->
+        <div style="position: absolute; top: 8%; left: -10px; background: #F5C842; color: #3A1F3D; padding: 14px 18px; border-radius: 22px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15px; box-shadow: 0 12px 28px rgba(58, 31, 61, 0.18); transform: rotate(-8deg); animation: gentleFloat 5s ease-in-out infinite; z-index: 4;">
+          Composizioni di bonbon 🎨
+        </div>
+        <div style="position: absolute; bottom: 18%; right: -12px; background: #6BC5A0; color: #fff; padding: 14px 18px; border-radius: 22px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 15px; box-shadow: 0 12px 28px rgba(58, 31, 61, 0.18); transform: rotate(6deg); animation: gentleFloat 6s ease-in-out 1s infinite; z-index: 4;">
+          Allestimenti per feste 🎉
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IL NOSTRO MONDO ============ -->
+  <section id="negozio" data-section-pad="" style="padding: 100px 24px; background: linear-gradient(180deg, #FFF9F2 0%, #FFE8F0 100%); position: relative;">
+    <div style="max-width: 880px; margin: 0 auto; text-align: center;">
+      <span style="display: inline-block; font-family: 'Baloo 2', sans-serif; font-weight: 700; color: #E85D8A; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px;">— Il nostro mondo —</span>
+      <h2 data-section-h="" style="font-family: 'Baloo 2', sans-serif; font-size: clamp(40px, 5vw, 58px); line-height: 1.08; margin: 0 0 28px; font-weight: 800; color: #3A1F3D; letter-spacing: -0.5px; text-wrap: balance;">Giggiolandia non è un negozio.<br><span style="color: #E85D8A;">È un viaggio.</span></h2>
+      <p style="font-size: clamp(17px, 1.8vw, 20px); line-height: 1.65; color: #5A3D5F; margin: 0 auto; max-width: 720px; text-wrap: pretty;">Caramelle di ogni forma e colore, composizioni artistiche di bonbon, palloncini che trasformano qualsiasi spazio in una festa, e decorazioni che rendono ogni torta un'opera d'arte. Tutto creato con amore da <strong style="color: #3A1F3D; font-weight: 700;">Daniela</strong>, nel cuore di Quartu Sant'Elena.</p>
+    </div>
+  </section>
+
+  <!-- ============ I NOSTRI TESORI ============ -->
+  <section id="prodotti" data-section-pad="" style="padding: 100px 24px; background: #FFF9F2;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <span style="display: inline-block; font-family: 'Baloo 2', sans-serif; font-weight: 700; color: #5BB8D4; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px;">— I nostri tesori —</span>
+        <h2 data-section-h="" style="font-family: 'Baloo 2', sans-serif; font-size: clamp(40px, 5vw, 58px); line-height: 1.08; margin: 0 0 16px; font-weight: 800; color: #3A1F3D; letter-spacing: -0.5px; text-wrap: balance;">Tutto quello che serve<br>per addolcire ogni occasione</h2>
+        <p style="font-size: 17px; line-height: 1.6; color: #6B4A6F; margin: 0 auto; max-width: 580px;">Cinque mondi colorati che si intrecciano in un'unica fiaba.</p>
+      </div>
+
+      <div data-products-grid="" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px;">
+
+        <article style="grid-column: span 3; background: #fff; border-radius: 28px; overflow: hidden; box-shadow: 0 12px 32px rgba(58, 31, 61, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease;" style-hover="transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 40px rgba(58, 31, 61, 0.14);">
+          <div style="position: relative; aspect-ratio: 4/3; background: linear-gradient(135deg, #E85D8A, #F5C842); overflow: hidden;">
+            <!-- TODO: sostituire con foto reale delle caramelle nei barattoli di Giggiolandia -->
+            <img src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=900&amp;q=80&amp;auto=format&amp;fit=crop" alt="Caramelle colorate" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; left: 16px; background: #fff; color: #E85D8A; padding: 6px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; box-shadow: 0 6px 14px rgba(58, 31, 61, 0.12);">🍬 Caramelle</span>
+          </div>
+          <div style="padding: 26px 28px 30px;">
+            <h3 style="font-family: 'Baloo 2', sans-serif; font-size: 26px; font-weight: 800; color: #3A1F3D; margin: 0 0 10px; letter-spacing: -0.3px;">Caramelle di ogni gusto</h3>
+            <p style="font-size: 16px; line-height: 1.55; color: #6B4A6F; margin: 0;">Gommose, dure, grandi, piccole — di ogni colore e per ogni gusto. Per grandi e piccini.</p>
+          </div>
+        </article>
+
+        <article style="grid-column: span 3; background: #fff; border-radius: 28px; overflow: hidden; box-shadow: 0 12px 32px rgba(58, 31, 61, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease;" style-hover="transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 40px rgba(58, 31, 61, 0.14);">
+          <div style="position: relative; aspect-ratio: 4/3; background: linear-gradient(135deg, #5BB8D4, #6BC5A0); overflow: hidden;">
+            <!-- TODO: sostituire con foto reale di una composizione di bonbon di Daniela -->
+            <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=900&amp;q=80&amp;auto=format&amp;fit=crop" alt="Composizioni di bonbon artistiche" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; left: 16px; background: #fff; color: #5BB8D4; padding: 6px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; box-shadow: 0 6px 14px rgba(58, 31, 61, 0.12);">🎨 Composizioni</span>
+          </div>
+          <div style="padding: 26px 28px 30px;">
+            <h3 style="font-family: 'Baloo 2', sans-serif; font-size: 26px; font-weight: 800; color: #3A1F3D; margin: 0 0 10px; letter-spacing: -0.3px;">Composizioni di Bonbon</h3>
+            <p style="font-size: 16px; line-height: 1.55; color: #6B4A6F; margin: 0;">Le creazioni artistiche di Daniela: composizioni originali e colorate di caramelle. Perfette come regalo o centrotavola.</p>
+          </div>
+        </article>
+
+        <article style="grid-column: span 2; background: #fff; border-radius: 28px; overflow: hidden; box-shadow: 0 12px 32px rgba(58, 31, 61, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease;" style-hover="transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 40px rgba(58, 31, 61, 0.14);">
+          <div style="position: relative; aspect-ratio: 4/3; background: linear-gradient(135deg, #F5C842, #E85D8A); overflow: hidden;">
+            <!-- TODO: sostituire con foto reale degli allestimenti di palloncini di Giggiolandia -->
+            <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=700&amp;q=80&amp;auto=format&amp;fit=crop" alt="Palloncini colorati per feste" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; left: 16px; background: #fff; color: #F5C842; padding: 6px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; box-shadow: 0 6px 14px rgba(58, 31, 61, 0.12);">🎈 Palloncini</span>
+          </div>
+          <div style="padding: 22px 24px 26px;">
+            <h3 style="font-family: 'Baloo 2', sans-serif; font-size: 22px; font-weight: 800; color: #3A1F3D; margin: 0 0 8px; letter-spacing: -0.3px;">Palloncini</h3>
+            <p style="font-size: 15px; line-height: 1.55; color: #6B4A6F; margin: 0;">Di tutte le forme e colori, per qualsiasi occasione. Compleanni, battesimi, lauree, matrimoni.</p>
+          </div>
+        </article>
+
+        <article style="grid-column: span 2; background: #fff; border-radius: 28px; overflow: hidden; box-shadow: 0 12px 32px rgba(58, 31, 61, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease;" style-hover="transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 40px rgba(58, 31, 61, 0.14);">
+          <div style="position: relative; aspect-ratio: 4/3; background: linear-gradient(135deg, #6BC5A0, #5BB8D4); overflow: hidden;">
+            <!-- TODO: sostituire con foto reale delle decorazioni per torte con caramelle -->
+            <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=700&amp;q=80&amp;auto=format&amp;fit=crop" alt="Decorazioni per torte" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; left: 16px; background: #fff; color: #6BC5A0; padding: 6px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; box-shadow: 0 6px 14px rgba(58, 31, 61, 0.12);">🎂 Torte</span>
+          </div>
+          <div style="padding: 22px 24px 26px;">
+            <h3 style="font-family: 'Baloo 2', sans-serif; font-size: 22px; font-weight: 800; color: #3A1F3D; margin: 0 0 8px; letter-spacing: -0.3px;">Decorazioni per Torte</h3>
+            <p style="font-size: 15px; line-height: 1.55; color: #6B4A6F; margin: 0;">Personalizza la tua torta con le nostre caramelle. Un tocco di colore e originalità.</p>
+          </div>
+        </article>
+
+        <article style="grid-column: span 2; background: #fff; border-radius: 28px; overflow: hidden; box-shadow: 0 12px 32px rgba(58, 31, 61, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease;" style-hover="transform: translateY(-8px) scale(1.01); box-shadow: 0 20px 40px rgba(58, 31, 61, 0.14);">
+          <div style="position: relative; aspect-ratio: 4/3; background: linear-gradient(135deg, #E85D8A, #5BB8D4); overflow: hidden;">
+            <!-- TODO: sostituire con foto reale degli addobbi per feste -->
+            <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=700&amp;q=80&amp;auto=format&amp;fit=crop" alt="Addobbi per feste" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+            <span style="position: absolute; top: 16px; left: 16px; background: #fff; color: #E85D8A; padding: 6px 12px; border-radius: 999px; font-weight: 700; font-size: 13px; box-shadow: 0 6px 14px rgba(58, 31, 61, 0.12);">🎉 Feste</span>
+          </div>
+          <div style="padding: 22px 24px 26px;">
+            <h3 style="font-family: 'Baloo 2', sans-serif; font-size: 22px; font-weight: 800; color: #3A1F3D; margin: 0 0 8px; letter-spacing: -0.3px;">Addobbi per Feste</h3>
+            <p style="font-size: 15px; line-height: 1.55; color: #6B4A6F; margin: 0;">Tutto quello che serve per trasformare uno spazio in una festa. Temi, colori, fantasia.</p>
+          </div>
+        </article>
+      </div>
+
+      <div style="text-align: center; margin-top: 56px;">
+        <p style="font-family: 'Baloo 2', sans-serif; font-size: clamp(20px, 2.4vw, 26px); font-weight: 600; color: #3A1F3D; margin: 0 0 24px; text-wrap: balance;">Hai un'idea? Chiamaci e creiamo insieme qualcosa di magico.</p>
+        <a href="tel:+393476302818" style="text-decoration: none; background: #3A1F3D; color: #fff; padding: 16px 32px; border-radius: 999px; font-weight: 700; font-size: 16px; box-shadow: 0 10px 24px rgba(58, 31, 61, 0.28); display: inline-flex; align-items: center; gap: 10px; transition: transform 0.2s ease;" style-hover="transform: translateY(-3px) scale(1.02);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Chiama 347 630 2818
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LA MAGA DELLE CARAMELLE ============ -->
+  <section id="daniela" data-section-pad="" style="padding: 100px 24px; background: linear-gradient(180deg, #FFF9F2 0%, #FFF3E0 100%); position: relative; overflow: hidden;">
+    <div style="max-width: 1140px; margin: 0 auto;">
+      <div data-daniela-grid="" style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center;">
+        <div style="position: relative;">
+          <!-- TODO: sostituire con una foto reale di Daniela nel negozio, o di una sua composizione di bonbon firmata -->
+          <div style="position: relative; aspect-ratio: 4/5; border-radius: 32px; overflow: hidden; box-shadow: 0 30px 60px rgba(58, 31, 61, 0.22); transform: rotate(-2deg); background: linear-gradient(160deg, #F5C842 0%, #E85D8A 100%);">
+            <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=900&amp;q=80&amp;auto=format&amp;fit=crop" alt="Composizione artistica di bonbon firmata Daniela — TODO: sostituire con foto reale di Daniela nel negozio" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="position: absolute; bottom: -18px; right: -18px; background: #6BC5A0; color: #fff; padding: 18px 22px; border-radius: 22px; font-family: 'Pacifico', cursive; font-size: 22px; box-shadow: 0 14px 28px rgba(107, 197, 160, 0.4); transform: rotate(5deg); animation: gentleFloat 6s ease-in-out infinite;">
+            Daniela
+          </div>
+        </div>
+
+        <div>
+          <span style="display: inline-block; font-family: 'Baloo 2', sans-serif; font-weight: 700; color: #F5C842; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px;">— La maga delle caramelle —</span>
+          <h2 data-section-h="" style="font-family: 'Baloo 2', sans-serif; font-size: clamp(40px, 5vw, 56px); line-height: 1.05; margin: 0 0 28px; font-weight: 800; color: #3A1F3D; letter-spacing: -0.5px; text-wrap: balance;">Dietro ogni barattolo<br>colorato c'è <span style="color: #E85D8A;">Daniela</span>.</h2>
+          <p style="font-size: clamp(17px, 1.7vw, 19px); line-height: 1.65; color: #5A3D5F; margin: 0 0 18px; text-wrap: pretty;">È lei che ha creato Giggiolandia — un luogo dove le caramelle diventano arte e ogni festa diventa una fiaba. Quando entri, ti accoglie con un sorriso e un'idea.</p>
+          <p style="font-size: clamp(17px, 1.7vw, 19px); line-height: 1.65; color: #5A3D5F; margin: 0 0 32px; text-wrap: pretty;">Quando esci, hai tra le mani qualcosa di unico.</p>
+          <!-- TODO: sostituire con una bio reale di Daniela se fornita dal cliente -->
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <span style="background: #fff; color: #3A1F3D; padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: 14px; box-shadow: 0 6px 14px rgba(58, 31, 61, 0.08);">🎨 Artista delle composizioni</span>
+            <span style="background: #fff; color: #3A1F3D; padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: 14px; box-shadow: 0 6px 14px rgba(58, 31, 61, 0.08);">✨ Fondatrice di Giggiolandia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LE TUE FESTE ============ -->
+  <section data-section-pad="" style="padding: 100px 24px; background: #3A1F3D; color: #fff; position: relative; overflow: hidden;">
+    <!-- Decorative dots -->
+    <span aria-hidden="true" style="position: absolute; top: 40px; left: 8%; width: 14px; height: 14px; border-radius: 50%; background: #E85D8A;"></span>
+    <span aria-hidden="true" style="position: absolute; top: 80px; right: 12%; width: 20px; height: 20px; border-radius: 50%; background: #F5C842;"></span>
+    <span aria-hidden="true" style="position: absolute; bottom: 60px; left: 14%; width: 16px; height: 16px; border-radius: 50%; background: #6BC5A0;"></span>
+    <span aria-hidden="true" style="position: absolute; bottom: 100px; right: 8%; width: 12px; height: 12px; border-radius: 50%; background: #5BB8D4;"></span>
+
+    <div style="max-width: 1100px; margin: 0 auto; position: relative;">
+      <div data-feste-grid="" style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center;">
+        <div>
+          <span style="display: inline-block; font-family: 'Baloo 2', sans-serif; font-weight: 700; color: #F5C842; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px;">— Le tue feste —</span>
+          <h2 data-section-h="" style="font-family: 'Baloo 2', sans-serif; font-size: clamp(40px, 5vw, 56px); line-height: 1.05; margin: 0 0 28px; font-weight: 800; color: #fff; letter-spacing: -0.5px; text-wrap: balance;">Raccontaci<br>la tua festa.</h2>
+          <p style="font-size: clamp(17px, 1.7vw, 19px); line-height: 1.65; color: rgba(255, 255, 255, 0.85); margin: 0 0 36px; text-wrap: pretty; max-width: 520px;">Stai organizzando un compleanno? Un battesimo? Una laurea? Giggiolandia è il tuo punto di partenza. Palloncini, addobbi, sacchettini di caramelle, composizioni per i tavoli — tutto coordinato, tutto colorato, tutto magico.</p>
+
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="https://wa.me/393476302818?text=Ciao%2C%20vorrei%20informazioni%20su%20Giggiolandia%20per%20una%20festa." target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: #6BC5A0; color: #fff; padding: 16px 28px; border-radius: 999px; font-weight: 700; font-size: 16px; box-shadow: 0 10px 24px rgba(107, 197, 160, 0.4); display: inline-flex; align-items: center; gap: 10px; transition: transform 0.2s ease;" style-hover="transform: translateY(-3px) scale(1.02);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.464 3.488"></path></svg>
+              Organizza la tua festa
+            </a>
+            <a href="tel:+393476302818" style="text-decoration: none; background: transparent; color: #fff; padding: 16px 28px; border-radius: 999px; font-weight: 700; font-size: 16px; border: 2px solid rgba(255,255,255,0.4); display: inline-flex; align-items: center; gap: 10px; transition: background 0.2s ease, transform 0.2s ease;" style-hover="background: rgba(255,255,255,0.08); transform: translateY(-3px);">
+              Chiama
+            </a>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div style="background: #E85D8A; border-radius: 20px; padding: 24px; aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; transform: rotate(-2deg);">
+            <span style="font-size: 32px;">🎂</span>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; line-height: 1.1;">Compleanni</span>
+          </div>
+          <div style="background: #F5C842; color: #3A1F3D; border-radius: 20px; padding: 24px; aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; transform: rotate(2deg); margin-top: 24px;">
+            <span style="font-size: 32px;">👶</span>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; line-height: 1.1;">Battesimi &amp; nascite</span>
+          </div>
+          <div style="background: #5BB8D4; border-radius: 20px; padding: 24px; aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; transform: rotate(2deg);">
+            <span style="font-size: 32px;">🎓</span>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; line-height: 1.1;">Lauree</span>
+          </div>
+          <div style="background: #6BC5A0; border-radius: 20px; padding: 24px; aspect-ratio: 1; display: flex; flex-direction: column; justify-content: space-between; transform: rotate(-2deg); margin-top: 24px;">
+            <span style="font-size: 32px;">💍</span>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; line-height: 1.1;">Matrimoni</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section data-section-pad="" style="padding: 100px 24px; background: #FFF9F2;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <span style="display: inline-block; font-family: 'Baloo 2', sans-serif; font-weight: 700; color: #6BC5A0; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px;">— Cosa dicono i nostri clienti —</span>
+        <h2 data-section-h="" style="font-family: 'Baloo 2', sans-serif; font-size: clamp(40px, 5vw, 56px); line-height: 1.05; margin: 0; font-weight: 800; color: #3A1F3D; letter-spacing: -0.5px; text-wrap: balance;">Parole vere<br>da chi è entrato nel mondo magico.</h2>
+      </div>
+
+      <div data-reviews-grid="" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px;">
+        <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="4">
+          <article style="background: #fff; border-radius: 28px; padding: 36px; border-top: 6px solid {{ r.color }}; box-shadow: 0 10px 28px rgba(58, 31, 61, 0.08); display: flex; flex-direction: column; gap: 20px;">
+            <div style="font-size: 56px; line-height: 0.6; color: {{ r.color }}; font-family: Georgia, serif; height: 28px;">"</div>
+            <p style="font-size: 17px; line-height: 1.6; color: #3A1F3D; margin: 0; flex: 1; text-wrap: pretty;">{{ r.text }}</p>
+            <div style="display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px dashed rgba(58, 31, 61, 0.12);">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: {{ r.color }}; color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 18px; flex-shrink: 0;">{{ r.initial }}</div>
+              <div style="display: flex; flex-direction: column;">
+                <span style="font-weight: 700; color: #3A1F3D; font-size: 15px;">{{ r.author }}</span>
+                <span style="color: #6B4A6F; font-size: 13px;">Recensione Google</span>
+              </div>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIENI A TROVARCI ============ -->
+  <section id="contatti" data-section-pad="" style="padding: 100px 24px; background: linear-gradient(180deg, #FFF9F2 0%, #E0F0F5 100%);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <span style="display: inline-block; font-family: 'Baloo 2', sans-serif; font-weight: 700; color: #5BB8D4; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px;">— Vieni a trovarci —</span>
+        <h2 data-section-h="" style="font-family: 'Baloo 2', sans-serif; font-size: clamp(40px, 5vw, 56px); line-height: 1.05; margin: 0; font-weight: 800; color: #3A1F3D; letter-spacing: -0.5px; text-wrap: balance;">Ti aspettiamo a<br>Quartu Sant'Elena.</h2>
+      </div>
+
+      <div data-visit-grid="" style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; align-items: stretch;">
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="background: #fff; border-radius: 24px; padding: 28px; box-shadow: 0 10px 28px rgba(58, 31, 61, 0.08); display: flex; gap: 16px; align-items: flex-start;">
+            <div style="width: 48px; height: 48px; border-radius: 14px; background: #E85D8A; color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div style="flex: 1;">
+              <h3 style="font-family: 'Baloo 2', sans-serif; font-size: 18px; font-weight: 700; margin: 0 0 6px; color: #3A1F3D;">Indirizzo</h3>
+              <p style="margin: 0 0 12px; font-size: 15px; line-height: 1.5; color: #5A3D5F;">Via Fiume 195<br>09045 Quartu Sant'Elena (CA)</p>
+              <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Giggiolandia+Via+Fiume+195+Quartu+Sant+Elena" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: #E85D8A; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+                Indicazioni stradali <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div style="background: #fff; border-radius: 24px; padding: 28px; box-shadow: 0 10px 28px rgba(58, 31, 61, 0.08); display: flex; gap: 16px; align-items: flex-start;">
+            <div style="width: 48px; height: 48px; border-radius: 14px; background: #5BB8D4; color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div style="flex: 1;">
+              <h3 style="font-family: 'Baloo 2', sans-serif; font-size: 18px; font-weight: 700; margin: 0 0 6px; color: #3A1F3D;">Telefono</h3>
+              <a href="tel:+393476302818" style="text-decoration: none; color: #3A1F3D; font-size: 17px; font-weight: 600; display: block; margin-bottom: 10px;">347 630 2818</a>
+              <a href="https://wa.me/393476302818?text=Ciao%2C%20vorrei%20informazioni%20su%20Giggiolandia." target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: #6BC5A0; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+                Scrivi su WhatsApp <span aria-hidden="true">→</span>
+              </a>
+              <!-- VERIFY: confirm WhatsApp number with client (assumed same as phone) -->
+            </div>
+          </div>
+
+          <div style="background: #fff; border-radius: 24px; padding: 28px; box-shadow: 0 10px 28px rgba(58, 31, 61, 0.08); display: flex; gap: 16px; align-items: flex-start;">
+            <div style="width: 48px; height: 48px; border-radius: 14px; background: #F5C842; color: #3A1F3D; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div style="flex: 1;">
+              <h3 style="font-family: 'Baloo 2', sans-serif; font-size: 18px; font-weight: 700; margin: 0 0 10px; color: #3A1F3D;">Orari</h3>
+              <div style="display: flex; flex-direction: column; gap: 4px; font-size: 15px; color: #5A3D5F; line-height: 1.5;">
+                <div style="display: flex; justify-content: space-between;"><span>Lun – Sab</span><span style="font-weight: 600; color: #3A1F3D;">9:00 – 13:00</span></div>
+                <div style="display: flex; justify-content: space-between;"><span>Lun – Sab</span><span style="font-weight: 600; color: #3A1F3D;">17:00 – 20:00</span></div>
+                <!-- VERIFY: conferma orari domenicali su Google Maps -->
+                <div style="display: flex; justify-content: space-between; margin-top: 6px; font-size: 13px; color: #6B4A6F; font-style: italic;"><span>Domenica</span><span>Verifica su Google Maps</span></div>
+              </div>
+              <p style="margin: 14px 0 0; padding: 12px 14px; background: #FFF3E0; border-radius: 12px; font-size: 13px; line-height: 1.5; color: #6B4A6F;">📦 Consegna e ritiro disponibili. Per ordini personalizzati chiamaci!</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="border-radius: 28px; overflow: hidden; box-shadow: 0 14px 36px rgba(58, 31, 61, 0.14); min-height: 500px; background: #fff;">
+          <iframe src="https://maps.google.com/maps?q=Giggiolandia+Via+Fiume+195+09045+Quartu+Sant+Elena&amp;output=embed" width="100%" height="100%" style="border: 0; min-height: 500px; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa di Giggiolandia, Via Fiume 195, Quartu Sant'Elena"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="background: #3A1F3D; color: #fff; padding: 60px 24px 32px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div data-footer-grid="" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.12);">
+
+        <div>
+          <div style="display: flex; flex-direction: column;">
+            <span style="font-family: 'Pacifico', cursive; font-size: 34px; line-height: 1;">
+              <span style="color: #E85D8A;">G</span><span style="color: #F5C842;">i</span><span style="color: #6BC5A0;">g</span><span style="color: #5BB8D4;">g</span><span style="color: #E85D8A;">i</span><span style="color: #6BC5A0;">o</span><span style="color: #F5C842;">l</span><span style="color: #5BB8D4;">a</span><span style="color: #E85D8A;">n</span><span style="color: #F5C842;">d</span><span style="color: #6BC5A0;">i</span><span style="color: #5BB8D4;">a</span>
+            </span>
+            <span style="font-size: 12px; font-weight: 500; letter-spacing: 1.4px; text-transform: uppercase; margin-top: 6px; color: rgba(255,255,255,0.7);">il magico mondo delle caramelle</span>
+          </div>
+          <p style="margin: 20px 0 0; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.7); max-width: 360px;">Caramelle, palloncini, composizioni di bonbon e tutta la magia per le tue feste. Creato con amore da Daniela a Quartu Sant'Elena.</p>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-size: 14px; font-weight: 700; margin: 0 0 16px; letter-spacing: 1.5px; text-transform: uppercase; color: #F5C842;">Contatti</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+            <li><a href="tel:+393476302818" style="text-decoration: none; color: rgba(255,255,255,0.85); font-size: 14px;">347 630 2818</a></li>
+            <li><a href="https://wa.me/393476302818?text=Ciao%2C%20vorrei%20informazioni%20su%20Giggiolandia." target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: rgba(255,255,255,0.85); font-size: 14px;">WhatsApp</a></li>
+            <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Giggiolandia+Via+Fiume+195+Quartu+Sant+Elena" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: rgba(255,255,255,0.85); font-size: 14px;">Indicazioni</a></li>
+            <li style="color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.5;">Via Fiume 195<br>09045 Quartu Sant'Elena (CA)</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-family: 'Baloo 2', sans-serif; font-size: 14px; font-weight: 700; margin: 0 0 16px; letter-spacing: 1.5px; text-transform: uppercase; color: #F5C842;">Seguici</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+            <li>
+              <a href="https://www.facebook.com/giggiolandia" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: rgba(255,255,255,0.85); font-size: 14px; display: inline-flex; align-items: center; gap: 8px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path></svg>
+                Facebook
+              </a>
+            </li>
+            <!-- TODO: aggiungere Instagram se confermato dal cliente -->
+            <li style="color: rgba(255,255,255,0.5); font-size: 13px; font-style: italic;">Instagram in arrivo</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="padding-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; align-items: center; font-size: 13px; color: rgba(255,255,255,0.55);">
+        <span>Giggiolandia · Quartu Sant'Elena · Il magico mondo delle caramelle</span>
+        <span>© 2026 Giggiolandia di Daniela Murgia · P.IVA TODO</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING PHONE BUTTON ============ -->
+  <a href="tel:+393476302818" aria-label="Chiama Giggiolandia" data-float-phone="" style="position: fixed; bottom: 24px; right: 24px; z-index: 60; width: 60px; height: 60px; border-radius: 50%; background: #E85D8A; color: #fff; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 12px 28px rgba(232, 93, 138, 0.5); animation: gentleFloat 4s ease-in-out infinite; transition: transform 0.2s ease;" style-hover="transform: scale(1.08);">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+  </a>
+
+  <!-- ============ MOBILE ACTION BAR ============ -->
+  <div data-only="mobile" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 55; background: rgba(255, 249, 242, 0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(58, 31, 61, 0.1); padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); display: flex; gap: 8px;">
+    <a href="tel:+393476302818" style="flex: 1; text-decoration: none; background: #E85D8A; color: #fff; padding: 14px 8px; border-radius: 14px; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 48px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      Chiama
+    </a>
+    <a href="https://wa.me/393476302818?text=Ciao%2C%20vorrei%20informazioni%20su%20Giggiolandia." target="_blank" rel="noopener noreferrer" style="flex: 1; text-decoration: none; background: #6BC5A0; color: #fff; padding: 14px 8px; border-radius: 14px; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 48px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.464 3.488"></path></svg>
+      WhatsApp
+    </a>
+    <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Giggiolandia+Via+Fiume+195+Quartu+Sant+Elena" target="_blank" rel="noopener noreferrer" style="flex: 1; text-decoration: none; background: #F5C842; color: #3A1F3D; padding: 14px 8px; border-radius: 14px; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 48px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      Mappa
+    </a>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { menuOpen: false };
+    this._confetti = this._buildConfetti();
+  }
+
+  _buildConfetti() {
+    const colors = ['#E85D8A', '#5BB8D4', '#F5C842', '#6BC5A0'];
+    const radii = ['50%', '50%', '4px', '20% 80% 20% 80%'];
+    const bits = [];
+    for (let i = 0; i < 18; i++) {
+      const r = (i * 9301 + 49297) % 233280 / 233280; // deterministic
+      const r2 = ((i + 7) * 9301 + 49297) % 233280 / 233280;
+      const r3 = ((i + 13) * 9301 + 49297) % 233280 / 233280;
+      const r4 = ((i + 19) * 9301 + 49297) % 233280 / 233280;
+      bits.push({
+        id: i,
+        left: (r * 100).toFixed(1) + '%',
+        size: (8 + r2 * 10).toFixed(0) + 'px',
+        duration: (9 + r3 * 7).toFixed(1) + 's',
+        delay: (r4 * 12).toFixed(2) + 's',
+        color: colors[i % colors.length],
+        radius: radii[i % radii.length]
+      });
+    }
+    return bits;
+  }
+
+  componentDidMount() {
+    this._closeMenuOnResize = () => {
+      if (window.innerWidth > 768 && this.state.menuOpen) {
+        this.setState({ menuOpen: false });
+      }
+    };
+    window.addEventListener('resize', this._closeMenuOnResize);
+  }
+
+  componentWillUnmount() {
+    if (this._closeMenuOnResize) window.removeEventListener('resize', this._closeMenuOnResize);
+  }
+
+  scrollTo(id) {
+    return (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 64;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+      if (this.state.menuOpen) this.setState({ menuOpen: false });
+    };
+  }
+
+  renderVals() {
+    const reviews = [
+      {
+        text: "UN NEGOZIO DA SOGNO!!! Grande cura dei particolari, tanta cortesia e allegria! Sembra di immergersi in una fiaba! Magnifiche e molto originali le \"composizioni\" di bon bon di tutti i colori e per tutti i gusti! Il tutto opera della geniale e artistica proprietaria Daniela!",
+        author: "Tiziana Merighi",
+        initial: "T",
+        color: "#E85D8A"
+      },
+      {
+        text: "Ho preso qui i palloncini per i 60 anni di mia mamma e sono rimasto davvero colpito. La persona dietro il bancone é stata di una dolcezza unica e si vede quanto ami il suo lavoro. La composizione è venuta perfetta e ha emozionato tutti. Super consigliato.",
+        author: "Luca Porcedda",
+        initial: "L",
+        color: "#5BB8D4"
+      },
+      {
+        text: "Daniela e il suo staff trasformano con magia tutti i colori in palloncini. Le sue caramelle sono anche speciali. Sempre disponibile e con il prezzo giusto ti aiuta ad allestire la festa e tutti escono soddisfatti. Consiglio a tutti la sua consulenza.",
+        author: "Gabi De Oliveira",
+        initial: "G",
+        color: "#F5C842"
+      },
+      {
+        text: "Negozio da favola pensato nei minimi dettagli, davvero unico nel suo genere!! Ti permette di ritornare bambino e perderti nelle deliziose e originali creazioni di caramelle.. meravigliose!! Personale cordiale e sempre disponibile! Passate!!",
+        author: "Francesca Caboni",
+        initial: "F",
+        color: "#6BC5A0"
+      }
+    ];
+
+    return {
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      goHome: this.scrollTo('home'),
+      goShop: this.scrollTo('negozio'),
+      goProducts: this.scrollTo('prodotti'),
+      goDaniela: this.scrollTo('daniela'),
+      goContatti: this.scrollTo('contatti'),
+      reviews,
+      confetti: this._confetti
+    };
+  }
+}
+</script>
+</body>
+</html>
